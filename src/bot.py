@@ -130,7 +130,11 @@ class Bot(commands.Bot):
         """        
         
         # Get server information
-        server = self.FetchServerInformation()
+        try:
+            server = self.FetchServerInformation()
+        except Exception as error:
+            print(f"[-] Failed to fetch server information: {error}")
+            server = None
         
         # For later
         lastUpdated = f"{timestamp.FormatTimestamp(time.time(), "R")}"
