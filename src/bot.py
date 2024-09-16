@@ -139,33 +139,35 @@ class Bot(commands.Bot):
         # For later
         lastUpdated = f"{timestamp.FormatTimestamp(time.time(), "R")}"
         
-        # Offline message
+        # Create embed
         if server is None:
+            # Offline message
             embed = discord.Embed(
                 title = "Server Status",
                 description = f"The tracked server is offline.\nLast updated: {lastUpdated}",
                 color = discord.Color.red()
             )
-            
-            await self.StatusMessage.edit(embed = embed)
-            return
-        
-        # Online message
-        embed = discord.Embed(
-            title = f"☀️ | {server.Name}",
+        else:
+            # Online message
+            embed = discord.Embed(
+                title = f"☀️ | {server.Name}",
 
-            description = "\n".join([
-                f"**⚙️ | {server.Gamemode} Server • " + ("🔒 | Password Protected" if server.PasswordProtected == PasswordProtected.Protected else "🔓 | No Password") + "**",
-                f"🔗 | {server.IP}:{server.Port}",
-                f"👥 | {server.Players}/{server.MaxPlayers} Players",
-                "",
-                f"**Last Updated:** {lastUpdated}"
-            ]),
+                description = "\n".join([
+                    f"**⚙️ | {server.Gamemode} Server • " + ("🔒 | Password Protected" if server.PasswordProtected == PasswordProtected.Protected else "🔓 | No Password") + "**",
+                    f"🔗 | {server.IP}:{server.Port}",
+                    f"👥 | {server.Players}/{server.MaxPlayers} Players",
+                    "",
+                    f"**Last Updated:** {lastUpdated}"
+                ]),
+                
+                color = env.GetStatusEmbedColor()
+            )
             
-            color = env.GetStatusEmbedColor()
-        )
+            embed.set_footer(text = f"Server Version: v{server.Version}")
+            embed.set_image(url = env.GetStatusBannerURL())
         
-        embed.set_footer(text = f"Server Version: v{server.Version}")
-        embed.set_image(url = env.GetStatusBannerURL())
-        
-        await self.StatusMessage.edit(embed = embed)
+        # Edit message
+        try:
+            await self.StatusMessage.edit(embed = embed)
+        except discord.HTTPException as error:
+            print(f"[-] Failed to update server status message: {error}")
