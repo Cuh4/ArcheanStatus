@@ -4,7 +4,7 @@
 
 """
 A module for reading user config.
-Repo: https://github.com/cuhHub/ArcheanStatus
+Repo: https://github.com/Cuh4/ArcheanStatus
 
 ---
 

@@ -4,7 +4,7 @@
 
 """
 A Discord bot for displaying the status of specified Archean servers.
-Repo: https://github.com/cuhHub/ArcheanStatus
+Repo: https://github.com/Cuh4/ArcheanStatus
 
 ---
 

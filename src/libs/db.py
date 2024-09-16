@@ -4,7 +4,7 @@
 
 """
 A module for handling basic data persistence via JSON.
-Repo: https://github.com/cuhHub/ArcheanStatus
+Repo: https://github.com/Cuh4/ArcheanStatus
 
 ---
 

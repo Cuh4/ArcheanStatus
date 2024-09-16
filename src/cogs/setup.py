@@ -4,7 +4,7 @@
 
 """
 A cog containing commands relating to status setup.
-Repo: https://github.com/cuhHub/ArcheanStatus
+Repo: https://github.com/Cuh4/ArcheanStatus
 
 ---
 

@@ -4,7 +4,7 @@
 
 """
 A module of pre-defined embeds.
-Repo: https://github.com/cuhHub/ArcheanStatus
+Repo: https://github.com/Cuh4/ArcheanStatus
 
 ---
 
