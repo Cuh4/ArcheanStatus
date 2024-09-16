@@ -151,7 +151,7 @@ class Bot(commands.Bot):
             title = f"☀️ | {server.Name}",
 
             description = "\n".join([
-                f"**⚙️ | {server.Gamemode} Server • " + ("🔒 | Password Protected" if server.PasswordProtected else "🔓 | No Password") + "**",
+                f"**⚙️ | {server.Gamemode} Server • " + ("🔒 | Password Protected" if server.PasswordProtected == PasswordProtected.Protected else "🔓 | No Password") + "**",
                 f"🔗 | {server.IP}:{server.Port}",
                 f"👥 | {server.Players}/{server.MaxPlayers} Players",
                 "",
