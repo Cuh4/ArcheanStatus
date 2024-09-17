@@ -25,8 +25,7 @@ limitations under the License.
 
 # ---- // Imports
 from libs.archean import (
-    Archean,
-    Gamemode
+    Archean
 )
 
 import libs.env as env
@@ -42,8 +41,6 @@ database = Database(env.GetDatabasePath(), {
 
 # Create bot
 bot = Bot(database, Archean())
-
-# Add cogs to bot
 
 # Run bot
 bot.run(env.GetBotToken())
