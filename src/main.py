@@ -3,7 +3,7 @@
 # // ---------------------------------------------------------------------
 
 """
-A Discord bot for displaying the status of specified Archean servers.
+A Discord bot for displaying the status of an Archean server.
 Repo: https://github.com/Cuh4/ArcheanStatus
 
 ---
