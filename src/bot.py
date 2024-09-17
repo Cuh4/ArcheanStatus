@@ -25,7 +25,7 @@ limitations under the License.
 
 # ---- // Imports
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 from discord.ext.tasks import loop
 
 import time
@@ -34,10 +34,10 @@ import libs.env as env
 import libs.embeds as embeds
 import libs.timestamp as timestamp
 from libs.db import Database
+
 from libs.archean import (
     Archean,
     Server,
-    Gamemode,
     PasswordProtected
 )
 
@@ -144,7 +144,7 @@ class Bot(commands.Bot):
             # Offline message
             embed = discord.Embed(
                 title = "Server Status",
-                description = f"The tracked server is offline.\nLast updated: {lastUpdated}",
+                description = f"⛔ | The tracked server is offline.\n-# Last updated: {lastUpdated}",
                 color = discord.Color.red()
             )
         else:
@@ -154,10 +154,10 @@ class Bot(commands.Bot):
 
                 description = "\n".join([
                     f"**⚙️ | {server.Gamemode} Server • " + ("🔒 | Password Protected" if server.PasswordProtected == PasswordProtected.Protected else "🔓 | No Password") + "**",
-                    f"🔗 | {server.IP}:{server.Port}",
+                    f"🔗 | " + (f"{server.IP}:{server.Port}" if not env.GetHideIP() else "IP Hidden"),
                     f"👥 | {server.Players}/{server.MaxPlayers} Players",
                     "",
-                    f"**Last Updated:** {lastUpdated}"
+                    f"-# Last Updated: {lastUpdated}"
                 ]),
                 
                 color = env.GetStatusEmbedColor()
