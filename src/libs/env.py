@@ -170,3 +170,13 @@ def GetStatusBannerURL() -> str:
     """
     
     return os.getenv("status_banner") or ""
+
+def GetHideIP() -> bool:
+    """
+    Returns whether or not to hide the server IP in the server status message. Gathered from the .env file.
+
+    Returns:
+        bool: Whether or not to hide the IP
+    """
+    
+    return os.getenv("hide_ip") == "yes"
